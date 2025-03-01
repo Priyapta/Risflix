@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
             backgroundColor: Color.fromARGB(255, 24, 24, 24),
             iconTheme: IconThemeData(color: Colors.white)),
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: Colors.deepPurple),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),

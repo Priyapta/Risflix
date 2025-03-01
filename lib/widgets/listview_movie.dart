@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/model/model.dart';
+import 'package:movie_app/pages/detailPage.dart';
 
 class MovieListWidget extends StatelessWidget {
   final Future<List<MovieModel>?> movies;
@@ -30,13 +31,26 @@ class MovieListWidget extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.network(
-                        "https://image.tmdb.org/t/p/original/${movie.posterPath}",
-                        fit: BoxFit.cover,
-                        width: 150,
-                        height: 200,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => detailMoviePage(
+                                    title: movie.title,
+                                    path:
+                                        "https://image.tmdb.org/t/p/original/${movie.backdropPath}",
+                                  )),
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.network(
+                          "https://image.tmdb.org/t/p/original/${movie.posterPath}",
+                          fit: BoxFit.cover,
+                          width: 150,
+                          height: 200,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 8),
