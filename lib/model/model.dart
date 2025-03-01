@@ -30,6 +30,7 @@ class MovieModel {
     required this.title,
     required this.voteAverage,
     required this.voteCount,
+    required this.date,
   });
 
   final String? backdropPath;
@@ -39,6 +40,7 @@ class MovieModel {
   final String title;
   final double voteAverage;
   final int voteCount;
+  final String date;
 
   factory MovieModel.fromMap(Map<String, dynamic> json) => MovieModel(
         backdropPath: json["backdrop_path"] ?? '',
@@ -48,5 +50,6 @@ class MovieModel {
         title: json["title"],
         voteAverage: json["vote_average"].toDouble(),
         voteCount: json["vote_count"],
+        date: json["release_date"],
       );
 }
