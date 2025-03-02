@@ -5,10 +5,10 @@ import 'package:movie_app/model/model.dart';
 import 'package:movie_app/pages/detailPage.dart';
 import 'package:movie_app/services/service.dart';
 
-class MovieListWidget extends StatelessWidget {
+class recommendationMovie extends StatelessWidget {
   final Future<List<MovieModel>?> movies;
 
-  const MovieListWidget({super.key, required this.movies});
+  const recommendationMovie({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {

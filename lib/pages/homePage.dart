@@ -18,11 +18,13 @@ class _HomepageState extends State<Homepage> {
   late Future<List<MovieModel>?> nowShowing;
   late Future<List<MovieModel>?> popular;
   late Future<List<MovieModel>?> topRated;
+
   @override
   void initState() {
     nowShowing = APIservices().getShowing();
     popular = APIservices().getPopular();
     topRated = APIservices().getTopRated();
+
     super.initState();
   }
 

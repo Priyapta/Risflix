@@ -20,7 +20,9 @@ class MyApp extends StatelessWidget {
             backgroundColor: Color.fromARGB(255, 24, 24, 24),
             iconTheme: IconThemeData(color: Colors.white)),
         iconTheme: IconThemeData(color: Colors.deepPurple),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+            primaryContainer: Color.fromARGB(255, 24, 24, 24)),
         useMaterial3: true,
       ),
       home: const Homepage(),
