@@ -19,8 +19,10 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
             backgroundColor: Color.fromARGB(255, 24, 24, 24),
             iconTheme: IconThemeData(color: Colors.white)),
-        iconTheme: IconThemeData(color: Colors.white),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        iconTheme: IconThemeData(color: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+            primaryContainer: Color.fromARGB(255, 24, 24, 24)),
         useMaterial3: true,
       ),
       home: const Homepage(),

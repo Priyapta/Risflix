@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/model/model.dart';
+import 'package:movie_app/pages/detailPage.dart';
 
 class CarrouselWidgets extends StatefulWidget {
   const CarrouselWidgets(
@@ -28,46 +29,27 @@ class _CarrouselWidgetsState extends State<CarrouselWidgets> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 300,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://image.tmdb.org/t/p/original/${movie.posterPath}"),
-                                fit: BoxFit.fill)),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailMoviePage(
+                                      id: movie.id,
+                                    )),
+                          );
+                        },
+                        child: Container(
+                          height: 300,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      "https://image.tmdb.org/t/p/original/${movie.posterPath}"),
+                                  fit: BoxFit.fill)),
+                        ),
                       ),
                     ),
-                    // Positioned.fill(
-                    //   child: Align(
-                    //     alignment: Alignment.bottomCenter,
-                    //     child: Padding(
-                    //       padding: const EdgeInsets.all(8.0),
-                    //       child: ClipRRect(
-                    //         // Wajib agar efek blur mengikuti border radius
-                    //         borderRadius: BorderRadius.only(
-                    //           bottomLeft: Radius.circular(20),
-                    //           bottomRight: Radius.circular(20),
-                    //         ),
-                    //         child: BackdropFilter(
-                    //           filter: ImageFilter.blur(
-                    //               sigmaX: 5, sigmaY: 15), // Efek blur
-                    //           child: Container(
-                    //             height: 60,
-                    //             decoration: BoxDecoration(
-                    //               borderRadius: BorderRadius.only(
-                    //                 bottomLeft: Radius.circular(20),
-                    //                 bottomRight: Radius.circular(20),
-                    //               ),
-                    //               color: Colors.grey.withOpacity(
-                    //                   0.3), // Semi transparan
-                    //             ),
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                     Positioned(
                         bottom: 40,
                         left: 22,
