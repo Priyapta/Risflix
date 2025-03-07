@@ -68,7 +68,7 @@ class _DetailMoviePageState extends State<DetailMoviePage> {
                       height: 450,
                     ),
                     Positioned(
-                      top: 430,
+                      top: 435,
                       left: 0,
                       right: 0,
                       child: ClipRect(
