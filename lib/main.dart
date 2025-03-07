@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/pages/homePage.dart';
 import 'package:movie_app/pages/mainPage.dart';
+import 'package:movie_app/pages/profilePage.dart';
 
 void main() {
   runApp(const MyApp());

@@ -30,6 +30,51 @@ class _HomepageState extends State<Homepage> {
     super.initState();
   }
 
+  void _showDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: Colors.transparent, // Biar transparan di luar dialog
+          child: Container(
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Message",
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 16), // Spasi antara teks dan tombol
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(7)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15.0, vertical: 8),
+                      child: Text(
+                        "OK",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,8 +105,13 @@ class _HomepageState extends State<Homepage> {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
-        actions: const [
-          Icon(Icons.notifications),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {
+              _showDialog();
+            },
+          ),
         ],
       ),
       body: Stack(
