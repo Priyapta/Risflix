@@ -2,13 +2,16 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:movie_app/model/model.dart';
+import 'package:movie_app/pages/searchPage.dart';
 import 'package:movie_app/services/service.dart';
 import 'package:movie_app/widgets/bottomNav.dart';
 import 'package:movie_app/widgets/carrousel.dart';
 import 'package:movie_app/widgets/listview_movie.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+  const Homepage({
+    super.key,
+  });
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -129,12 +132,6 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
             ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: BottomNavBar(),
           ),
         ],
       ),

@@ -14,6 +14,7 @@ class APIservices {
       "https://api.themoviedb.org/3/movie/top_rated?api_key=$apiKey";
   final String detailMovieApi = "https://api.themoviedb.org/3/movie/";
   final String recommendationAPI = "https://api.themoviedb.org/3/movie/";
+  final String searchApi = "https://api.themoviedb.org/3/search/movie";
 
   Future<List<MovieModel>?> getShowing() async {
     try {
@@ -107,6 +108,27 @@ class APIservices {
     } catch (e) {
       // print("Error: $e");
       return null;
+    }
+  }
+
+  Future<List> searchMovies(String query, List<dynamic> movies) async {
+    try {
+      // final String path = "$detailMovieApi$id/recommendations?api_key=$apiKey";
+      final response = await dio.get(
+        searchApi,
+        queryParameters: {"api_key": apiKey, "query": query},
+      );
+      // print(response);
+
+      if (response.statusCode == 200) {
+        movies = response.data["results"];
+        return movies;
+      } else {
+        throw Exception("Failed to load data");
+      }
+    } catch (e) {
+      // print("Error: $e");
+      return [];
     }
   }
 }
