@@ -103,9 +103,10 @@ class _SearchMovieScreenState extends State<SearchMovieScreen> {
                         itemBuilder: (context, index) {
                           final movie = movies[index];
 
-                          final imageUrl = movie.posterPath != null
+                          final imageUrl = movie.posterPath != null &&
+                                  movie.posterPath?.isNotEmpty == true
                               ? "https://image.tmdb.org/t/p/w500${movie.posterPath}"
-                              : "https://picsum.photos/500/750";
+                              : "https://via.placeholder.com/150x200?text=No+Image";
 
                           return Padding(
                             padding: const EdgeInsets.all(2.0),
