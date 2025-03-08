@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/pages/homePage.dart';
+import 'package:movie_app/pages/profilePage.dart';
 import 'package:movie_app/pages/searchPage.dart';
 import 'package:movie_app/widgets/bottomNav.dart';
 
@@ -14,8 +15,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> page = [
     const Homepage(),
     const SearchMovieScreen(),
-    const Center(
-        child: Text("Profile Page", style: TextStyle(color: Colors.white))),
+    const Profilepage(),
   ];
 
   void _onTabChange(int index) {
