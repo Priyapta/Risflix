@@ -111,7 +111,8 @@ class APIservices {
     }
   }
 
-  Future<List> searchMovies(String query, List<dynamic> movies) async {
+  Future<List<MovieModel>> searchMovies(
+      String query, List<dynamic> movies) async {
     try {
       // final String path = "$detailMovieApi$id/recommendations?api_key=$apiKey";
       final response = await dio.get(
@@ -121,7 +122,9 @@ class APIservices {
       // print(response);
 
       if (response.statusCode == 200) {
-        movies = response.data["results"];
+        final List<dynamic> data = response.data['results'];
+        List<MovieModel> movies =
+            data.map((movie) => MovieModel.fromMap(movie)).toList();
         return movies;
       } else {
         throw Exception("Failed to load data");
