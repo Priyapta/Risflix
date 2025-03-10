@@ -1,16 +1,11 @@
-# movie_app
+# Movie App Flutter
 
-A new Flutter project.
+### Package
+- dio
+- google_nav_bar
+- font_awesome_flutter
+- Caroussel_slider
+- http
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Penjelasan
+Pada Aplikasi ini merupakan Aplikasi untuk melihat review dari film dan dapat melihat film yang sedang tayang ataupun yang populer. Fitur tersedia berupa fitur search film dimana user dapat mencari film yang ingin mereka lihat reviewnya. Package yang dipakai cukup banyak seperti http untuk melakukan HTTP request, seperti GET dan POST, ke API atau server. Carrousel untuk  membuat tampilan slider atau carousel dalam aplikasi Flutter. dio Mendukung interceptor, timeout, form-data, dan error handling yang lebih fleksibel. Google nav bar untuk tampilan bottom nav bar yang lebih menarik. Dalam membuat aplikasi ini tentu diperlukan waktu yang tidak sedikit sehingga pengerjaanya perlu dicicil. 
