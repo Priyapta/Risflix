@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/pages/homePage.dart';
 import 'package:movie_app/pages/mainPage.dart';
-import 'package:movie_app/pages/profilePage.dart';
+import 'package:movie_app/pages/welcomePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
             primaryContainer: Color.fromARGB(255, 24, 24, 24)),
         useMaterial3: true,
       ),
-      home: MainScreen(),
+      home: welcomePage(),
     );
   }
 }
