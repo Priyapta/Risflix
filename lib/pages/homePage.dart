@@ -35,7 +35,7 @@ class _HomepageState extends State<Homepage> {
       context: context,
       builder: (context) {
         return Dialog(
-          backgroundColor: Colors.transparent, // Biar transparan di luar dialog
+          backgroundColor: Colors.transparent,
           child: Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -50,7 +50,7 @@ class _HomepageState extends State<Homepage> {
                   style: TextStyle(color: Colors.white, fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 16), // Spasi antara teks dan tombol
+                SizedBox(height: 16),
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   child: Container(
@@ -118,8 +118,7 @@ class _HomepageState extends State<Homepage> {
         children: [
           Positioned.fill(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.only(
-                  bottom: 70), // Tambahkan padding agar tidak tertimpa navbar
+              padding: const EdgeInsets.only(bottom: 70),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

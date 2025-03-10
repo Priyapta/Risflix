@@ -78,9 +78,6 @@ class _SearchMovieScreenState extends State<SearchMovieScreen> {
                 ),
               ),
 
-              // Loading Indicator
-
-              // Movie List
               Expanded(
                 child: FutureBuilder<List<MovieModel>>(
                   future: movie,
@@ -106,7 +103,7 @@ class _SearchMovieScreenState extends State<SearchMovieScreen> {
                           final imageUrl = movie.posterPath != null &&
                                   movie.posterPath?.isNotEmpty == true
                               ? "https://image.tmdb.org/t/p/w500${movie.posterPath}"
-                              : "https://via.placeholder.com/150x200?text=No+Image";
+                              : "assets/no_data.png";
 
                           return Padding(
                             padding: const EdgeInsets.all(2.0),
@@ -130,10 +127,15 @@ class _SearchMovieScreenState extends State<SearchMovieScreen> {
                                             borderRadius:
                                                 BorderRadius.circular(16)),
                                         child: ClipRRect(
-                                          child: Image.network(imageUrl,
-                                              width: 120,
-                                              height: 100,
-                                              fit: BoxFit.cover),
+                                          child: imageUrl.startsWith('http')
+                                              ? Image.network(imageUrl,
+                                                  width: 120,
+                                                  height: 100,
+                                                  fit: BoxFit.cover)
+                                              : Image.asset(imageUrl,
+                                                  width: 120,
+                                                  height: 100,
+                                                  fit: BoxFit.cover),
                                         ),
                                       ),
                                       SizedBox(
@@ -144,8 +146,8 @@ class _SearchMovieScreenState extends State<SearchMovieScreen> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            movie.title.length > 35
-                                                ? "${movie.title.substring(0, 30)}..."
+                                            movie.title.length > 30
+                                                ? "${movie.title.substring(0, 25)}..."
                                                 : movie.title,
                                           ),
                                           Row(
@@ -215,28 +217,6 @@ class _SearchMovieScreenState extends State<SearchMovieScreen> {
                                   ),
                                 )),
                           );
-
-                          // return ListTile(
-                          //   leading: Image.network(imageUrl,
-                          //       width: 50, height: 75, fit: BoxFit.cover),
-                          //   title: Text(
-                          //     movie.title,
-                          //     style: TextStyle(
-                          //         color: Colors.white,
-                          //         fontWeight: FontWeight.bold),
-                          //   ),
-                          //   subtitle: Text(
-                          //     "Release Date: ${movie.date ?? "Unknown"}",
-                          //     style: TextStyle(color: Colors.grey),
-                          //   ),
-                          //   onTap: () {
-                          //     Navigator.push(
-                          //         context,
-                          //         MaterialPageRoute(
-                          //             builder: (context) =>
-                          //                 DetailMoviePage(id: movie.id)));
-                          //   },
-                          // );
                         },
                       );
                     }

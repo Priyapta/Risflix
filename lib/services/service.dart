@@ -15,7 +15,7 @@ class APIservices {
   final String detailMovieApi = "https://api.themoviedb.org/3/movie/";
   final String recommendationAPI = "https://api.themoviedb.org/3/movie/";
   final String searchApi = "https://api.themoviedb.org/3/search/movie";
-
+  //Semua fungsi untuk mendapatkan data dari api
   Future<List<MovieModel>?> getShowing() async {
     try {
       final response = await dio.get(nowShowingApi);
@@ -29,7 +29,6 @@ class APIservices {
         throw Exception("Failed to load data");
       }
     } catch (e) {
-      // print("Error: $e");
       return null;
     }
   }
@@ -37,7 +36,6 @@ class APIservices {
   Future<List<MovieModel>?> getPopular() async {
     try {
       final response = await dio.get(popularApi);
-      // print(response);
 
       if (response.statusCode == 200) {
         final List<dynamic> data = response.data['results'];
@@ -48,7 +46,6 @@ class APIservices {
         throw Exception("Failed to load data");
       }
     } catch (e) {
-      // print("Error: $e");
       return null;
     }
   }
@@ -56,7 +53,6 @@ class APIservices {
   Future<List<MovieModel>?> getTopRated() async {
     try {
       final response = await dio.get(topRatedApi);
-      // print(response);
 
       if (response.statusCode == 200) {
         final List<dynamic> data = response.data['results'];
@@ -67,7 +63,6 @@ class APIservices {
         throw Exception("Failed to load data");
       }
     } catch (e) {
-      // print("Error: $e");
       return null;
     }
   }
@@ -76,7 +71,6 @@ class APIservices {
     try {
       final String path = "$detailMovieApi$id?api_key=$apiKey";
       final response = await dio.get(path);
-      // print(response);
 
       if (response.statusCode == 200) {
         final data = response.data;
@@ -86,7 +80,6 @@ class APIservices {
         throw Exception("Failed to load data");
       }
     } catch (e) {
-      // print("Error: $e");
       return null;
     }
   }
@@ -95,7 +88,6 @@ class APIservices {
     try {
       final String path = "$detailMovieApi$id/recommendations?api_key=$apiKey";
       final response = await dio.get(path);
-      // print(response);
 
       if (response.statusCode == 200) {
         final List<dynamic> data = response.data['results'];
@@ -106,7 +98,6 @@ class APIservices {
         throw Exception("Failed to load data");
       }
     } catch (e) {
-      // print("Error: $e");
       return null;
     }
   }
@@ -114,12 +105,10 @@ class APIservices {
   Future<List<MovieModel>> searchMovies(
       String query, List<dynamic> movies) async {
     try {
-      // final String path = "$detailMovieApi$id/recommendations?api_key=$apiKey";
       final response = await dio.get(
         searchApi,
         queryParameters: {"api_key": apiKey, "query": query},
       );
-      // print(response);
 
       if (response.statusCode == 200) {
         final List<dynamic> data = response.data['results'];
@@ -130,7 +119,6 @@ class APIservices {
         throw Exception("Failed to load data");
       }
     } catch (e) {
-      // print("Error: $e");
       return [];
     }
   }

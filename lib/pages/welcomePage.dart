@@ -15,18 +15,13 @@ class welcomePage extends StatelessWidget {
               height: 50,
             ),
             Container(
-                width: MediaQuery.of(context)
-                    .size
-                    .width, // Pastikan Stack punya ukuran yang jelas
+                width: MediaQuery.of(context).size.width,
                 height: 350,
                 child: Stack(
-                  alignment:
-                      Alignment.center, // Pastikan semua elemen tetap di tengah
+                  alignment: Alignment.center,
                   children: [
-                    // Lingkaran abu-abu sebagai background
                     Container(
-                      width:
-                          220, // Lebih besar dari foto agar ada efek melingkar
+                      width: 220,
                       height: 220,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
