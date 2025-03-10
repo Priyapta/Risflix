@@ -40,42 +40,64 @@ class MovieListWidget extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DetailMoviePage(
-                                    id: movie.id,
-                                  )),
+                            builder: (context) => DetailMoviePage(id: movie.id),
+                          ),
                         );
                       },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.network(
-                          "https://image.tmdb.org/t/p/original/${movie.posterPath}",
-                          fit: BoxFit.cover,
-                          width: 150,
-                          height: 200,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.5),
+                              blurRadius: 8,
+                              spreadRadius: 2,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Image.network(
+                            "https://image.tmdb.org/t/p/original/${movie.posterPath}",
+                            fit: BoxFit.cover,
+                            width: 160,
+                            height: 220,
+                          ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 10),
                     Text(
                       movie.title.length > 20
                           ? "${movie.title.substring(0, 17)}..."
                           : movie.title,
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
+                    const SizedBox(height: 2),
                     Row(
                       children: [
                         Text(
                           "${movie.date.substring(0, 4)} | ",
-                          style: const TextStyle(color: Colors.white),
+                          style:
+                              const TextStyle(color: Colors.grey, fontSize: 14),
                         ),
                         const Icon(
                           Icons.star,
-                          size: 12,
-                          color: Colors.deepPurple,
+                          size: 16,
+                          color: Colors.amber,
                         ),
                         Text(
                           " ${movie.voteAverage.toStringAsFixed(1)}",
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     )
